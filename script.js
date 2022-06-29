@@ -20,32 +20,57 @@ function playRound(playerSelection, computerSelection) {
     }
     else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
+            computerScore++;
             return 'You lose! Paper beats rock!';
         }
         else if (computerSelection === 'scissors') {
+            playerScore++;
             return 'You win! Rock beats scissors!';
         }
     }
     else if (playerSelection === 'paper') {
         if (computerSelection === 'rock') {
+            playerScore++;
             return 'You win! Paper beats rock!';
         }
         else if (computerSelection === 'scissors') {
+            computerScore++;
             return 'You lose! Scissors beats paper!';
         }
     }
     else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
+            computerScore++;
             return 'You lose! Rock beats scissors!';
         }
         else if (computerSelection === 'paper') {
+            playerScore++;
             return 'You win! Scissors beats paper!';
         }
     }
 }
 
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+let playerScore = 0;
+let computerScore = 0;
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Choose your move!");
+        console.log(playRound(playerSelection, computerPlay()));
+    }
+    determineWin();
+}
+
+function determineWin() {
+    if (playerScore > computerScore) {
+        console.log('You win the game!');
+    }
+    else if (playerScore < computerScore) {
+        console.log('You lose the game!');
+    }
+    else {
+        console.log('The game is a draw!');
+    }
+}
+
+console.log(game());
