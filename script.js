@@ -16,7 +16,7 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
-        return "It's a draw!";
+        console.log("It's a draw!");
     }
     else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
@@ -71,4 +71,17 @@ function determineWin() {
     }
 }
 
-console.log(game());
+function playerChoice(e) {
+    if (this.classList.value === 'rock') {
+        playRound('rock', computerPlay());
+    }
+    else if (this.classList.value === 'paper') {
+        playRound('paper', computerPlay());
+    }
+    else {
+        playRound('scissors', computerPlay());
+    }
+}
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', playerChoice));
