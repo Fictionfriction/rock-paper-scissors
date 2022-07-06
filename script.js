@@ -16,36 +16,36 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
-        console.log("It's a draw!");
+        div.textContent = "It's a draw!";
     }
     else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
             computerScore++;
-            return 'You lose! Paper beats rock!';
+            div.textContent = 'You lose! Paper beats rock!';
         }
         else if (computerSelection === 'scissors') {
             playerScore++;
-            return 'You win! Rock beats scissors!';
+            div.textContent = 'You win! Rock beats scissors!';
         }
     }
     else if (playerSelection === 'paper') {
         if (computerSelection === 'rock') {
             playerScore++;
-            return 'You win! Paper beats rock!';
+            div.textContent = 'You win! Paper beats rock!';
         }
         else if (computerSelection === 'scissors') {
             computerScore++;
-            return 'You lose! Scissors beats paper!';
+            div.textContent = 'You lose! Scissors beats paper!';
         }
     }
     else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
             computerScore++;
-            return 'You lose! Rock beats scissors!';
+            div.textContent = 'You lose! Rock beats scissors!';
         }
         else if (computerSelection === 'paper') {
             playerScore++;
-            return 'You win! Scissors beats paper!';
+            div.textContent = 'You win! Scissors beats paper!';
         }
     }
 }
@@ -85,3 +85,4 @@ function playerChoice(e) {
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', playerChoice));
+const div = document.querySelector('div');
