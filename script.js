@@ -54,10 +54,8 @@ let playerScore = 0;
 let computerScore = 0;
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Choose your move!");
-        console.log(playRound(playerSelection, computerPlay()));
-    }
+    let playerSelection = prompt("Choose your move!");
+    console.log(playRound(playerSelection, computerPlay()));
     determineWin();
 }
 
